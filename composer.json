@@ -1,0 +1,30 @@
+{
+    "name": "ycl123/queue",
+    "description": "基于 Workerman4 的定时任务队列。",
+    "type": "library",
+    "keywords": [
+        "queue",
+        "scheduler",
+        "scheduling"
+    ],
+    "license": "Apache-2.0",
+    "authors": [
+        {
+            "name": "ycl123",
+            "email": "y1834257499@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=7.2",
+        "topthink/think-orm": "^2.0",
+        "workerman/workerman": "^4.0",
+        "ext-json": "*",
+        "symfony/finder": "^5.2",
+        "topthink/think-container": "^2.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "ycl123\\queue\\": "src"
+        }
+    }
+}
