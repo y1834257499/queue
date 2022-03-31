@@ -155,7 +155,7 @@ final class Database
      */
     public function disableScheduler(int $schedulerId): int
     {
-        return $this->dbConnect->table('task_scheduler')
+        return $this->dbConnect->name('task_scheduler')
             ->where('id', $schedulerId)
             ->where('scheduler_status', 1)
             ->update(['scheduler_status' => 2]);
