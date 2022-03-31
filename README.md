@@ -158,7 +158,7 @@ namespace ycl123\queue;
 
 class TestTask extends Task
 {
-    public function run(array $taskTata): Result
+    public function run(array $taskData): Result
     {
         return Result::instanceSuccess();
     }

@@ -6,10 +6,10 @@ abstract class Task
 {
     /**
      * 任务处理逻辑
-     * @param array $taskTata
+     * @param array $taskData
      * @return Result
      */
-    abstract public function run(array $taskTata): Result;
+    abstract public function run(array $taskData): Result;
 
     /**
      * 任务主题
