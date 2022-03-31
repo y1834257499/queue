@@ -56,7 +56,7 @@ final class Start
     public function __construct(array $config)
     {
         $this->config = $this->getConfig($config);
-        self::$log = $this->config['log'] ?: $this->config['logFile'];
+        self::$log = $this->config['log'] ?: null;
     }
 
     public function run(): void
@@ -123,9 +123,9 @@ final class Start
     public static function recordLog($msg): void
     {
         if (is_string(self::$log)) {
-            Worker::log(self::$log);
-        } else {
             (self::$log)($msg);
+        } else {
+            Worker::log($msg);
         }
     }
 
@@ -137,7 +137,7 @@ final class Start
      */
     public static function jsonEncode($value): string
     {
-        return json_encode($value, JSON_THROW_ON_ERROR) ?: '';
+        return json_encode($value ?: [], JSON_THROW_ON_ERROR) ?: '';
     }
 
     /**
@@ -148,7 +148,7 @@ final class Start
      */
     public static function jsonDecode($json): array
     {
-        return json_decode($json, true, 512, JSON_THROW_ON_ERROR) ?: [];
+        return json_decode($json ?: '[]', true, 512, JSON_THROW_ON_ERROR) ?: [];
     }
 
     /**
