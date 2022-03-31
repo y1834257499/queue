@@ -334,7 +334,7 @@ final class Database
     }
 
     /**
-     * 批量八寸队列数据列表
+     * 批量保存队列数据列表
      * @param int $distributorId
      * @param array $taskList
      * @param string $taskTopic
