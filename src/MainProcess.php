@@ -124,7 +124,7 @@ final class MainProcess
                     if (is_subclass_of($taskFile, Task::class) && !(new ReflectionClass($taskFile))->isAbstract()) {
                         $taskTopic = $taskFile::getTaskTopic();
                         $this->taskTopicFilePool[$taskTopic] = $taskFile;
-                        $this->taskTopicCountPool[$taskTopic] = $taskFile::getMaxConcurrent();
+                        $this->taskTopicMaxConcurrentPool[$taskTopic] = $taskFile::getMaxConcurrent();
                     }
                 }
             }
@@ -132,7 +132,7 @@ final class MainProcess
                 if (is_subclass_of($taskFile, Task::class) && !(new ReflectionClass($taskFile))->isAbstract()) {
                     $taskTopic = $taskFile::getTaskTopic();
                     $this->taskTopicFilePool[$taskTopic] = $taskFile;
-                    $this->taskTopicCountPool[$taskTopic] = $taskFile::getMaxConcurrent();
+                    $this->taskTopicMaxConcurrentPool[$taskTopic] = $taskFile::getMaxConcurrent();
                 }
             }
         } catch (Exception $exception) {
