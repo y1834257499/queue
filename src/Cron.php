@@ -169,7 +169,7 @@ final class Cron
                 $week = (int)date('N', strtotime($ymt));
                 $less = 5 - $week;
                 $between[] = $less < 0 ? date('j', strtotime($less . ' day ' . $ymt)) : date('t', $time);
-            } elseif (strpos($segment, 'W', -1) === 1) {
+            } elseif (strpos($segment, 'W') !== false && strpos($segment, 'W', -1) === 1) {
                 $day = (int)substr($segment, 0, -1);
                 $t = (int)date('t', $time);
                 if ($day <= $t) {
@@ -189,7 +189,7 @@ final class Cron
                         $between[] = $day + 1;
                     }
                 }
-            } elseif (strpos($segment, 'L', -1) === 1) {
+            } elseif (strpos($segment, 'W') !== false && strpos($segment, 'L', -1) === 1) {
                 $week = (int)substr($segment, 0, -1);
                 $week = $week === 0 ? 7 : $week;
                 $ymt = date('Y-m-t', $time);
