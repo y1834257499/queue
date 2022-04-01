@@ -133,11 +133,9 @@ final class Cron
             return true;
         }
         $between = [];
-        if (null === $time) {
-            $time = time();
-        }
+        $time = is_null($time) ? time() : $time;
         foreach ($segments as $segment) {
-            $segment = ltrim($segment, '0');
+            $segment = strlen($segment) > 1 ? ltrim($segment, '0') : $segment;
             if (strpos($segment, '-') !== false) {
                 [$min_, $max_] = explode('-', $segment);
                 if ($min_ > $max_) {
